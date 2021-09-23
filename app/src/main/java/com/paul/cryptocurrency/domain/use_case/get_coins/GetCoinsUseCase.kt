@@ -1,4 +1,4 @@
-package com.paul.cryptocurrency.domain.use_case.get_coin
+package com.paul.cryptocurrency.domain.use_case.get_coins
 
 import com.paul.cryptocurrency.common.Resource
 import com.paul.cryptocurrency.data.remote.dto.toCoin
@@ -18,7 +18,7 @@ class GetCoinsUseCase  @Inject constructor(
         try {
             emit(Resource.Loading<List<Coin>>())
             val coins =  repository.getCoins().map { it.toCoin() }
-            emit(Resource.Success   (coins))
+            emit(Resource.Success<List<Coin>>(coins))
 
         } catch (e : HttpException)
         {

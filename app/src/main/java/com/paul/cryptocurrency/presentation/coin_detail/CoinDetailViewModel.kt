@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.paul.cryptocurrency.common.Constants
 import com.paul.cryptocurrency.common.Resource
-import com.paul.cryptocurrency.domain.use_case.get_coins.GetCoinUseCase
+import com.paul.cryptocurrency.domain.use_case.get_coin.GetCoinUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -19,16 +19,16 @@ class CoinDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    private val _state = mutableStateOf<CoinDetailState>(CoinDetailState())
+    private val _state = mutableStateOf(CoinDetailState())
     val state: State<CoinDetailState> = _state
 
    init {
-       savedStateHandle.get<String>(Constants.PARAM_COIN_ID)?.let { coinId -> {
+       savedStateHandle.get<String>(Constants.PARAM_COIN_ID)?.let { coinId ->
            getCoin(coinId)
-       } }
+       }
    }
     private fun getCoin(coinId: String) {
-        getCoinUseCase(coinId = coinId).onEach { result ->
+        getCoinUseCase(coinId).onEach { result ->
 
             when (result) {
                 is Resource.Success -> {

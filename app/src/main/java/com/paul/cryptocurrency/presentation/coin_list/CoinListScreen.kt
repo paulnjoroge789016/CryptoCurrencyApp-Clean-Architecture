@@ -1,6 +1,5 @@
 package com.paul.cryptocurrency.presentation.coin_list
 
-
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth

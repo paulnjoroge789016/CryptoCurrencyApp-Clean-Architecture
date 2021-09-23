@@ -1,4 +1,4 @@
-package com.paul.cryptocurrency.domain.use_case.get_coins
+package com.paul.cryptocurrency.domain.use_case.get_coin
 
 import com.paul.cryptocurrency.common.Resource
 import com.paul.cryptocurrency.data.remote.dto.toCoin
