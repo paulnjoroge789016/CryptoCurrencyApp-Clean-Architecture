@@ -4,7 +4,7 @@ import com.paul.cryptocurrency.domain.model.Coin
 
 data class CoinListState(
     val isLoading: Boolean = false,
-    val coins: Coin? = null,
+    val coins: List<Coin> = emptyList(),
     val error: String = ""
 
 )
