@@ -1,4 +1,4 @@
-package com.paul.cryptocurrency.presentation.coin_detail.components
+package com.paul.cryptocurrency.presentation.coin_detail
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -7,12 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.paul.cryptocurrency.common.Constants
 import com.paul.cryptocurrency.common.Resource
-import com.paul.cryptocurrency.domain.model.Coin
-import com.paul.cryptocurrency.domain.use_case.get_coin.GetCoinsUseCase
 import com.paul.cryptocurrency.domain.use_case.get_coins.GetCoinUseCase
-import com.paul.cryptocurrency.presentation.coin_detail.CoinDetailState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
