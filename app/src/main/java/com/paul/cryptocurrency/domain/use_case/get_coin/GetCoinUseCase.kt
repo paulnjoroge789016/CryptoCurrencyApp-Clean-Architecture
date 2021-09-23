@@ -24,7 +24,11 @@ class GetCoinUseCase  @Inject constructor(
 
         } catch (e : HttpException)
         {
-            emit(Resource.Error<CoinDetail>(e.localizedMessage ?: "An unexpected error occurred") )
+            if(e.code() == 429){
+                emit(Resource.Error<CoinDetail>("You have reached maximum number of request."))
+            } else{
+                emit(Resource.Error<CoinDetail>(e.localizedMessage ?: "An unexpected error occurred") )
+            }
         } catch (e : IOException){
             emit(Resource.Error<CoinDetail>("Couldn't reach server. Check your internet connection") )
 
